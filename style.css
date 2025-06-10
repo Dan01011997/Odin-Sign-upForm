@@ -1,0 +1,194 @@
+@font-face {
+    font-family: "logo";
+    src: url(fonts/Norse-Bold.otf);
+}
+@font-face {
+    font-family: "newformheading";
+    src: url(fonts/newfont/EduNSWACTHandPre-SemiBold.woff2);
+}
+@font-face {
+    font-family:"formheading" ;
+    src: url(fonts/fontCool/LexendZetta-Bold.woff2);
+}
+@font-face {
+    font-family: "formlabel";
+    src: url(fonts/fontCool/LexendZetta-Light.woff2);
+}
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+:root{
+    height: 100%;
+    --hoverColor:rgba(238, 238, 238, 0.904);
+    --hoverBorderColor:rgb(188, 77, 132);
+    --inputBorderColor:black;
+    --buttonHoverbgcolor:rgb(220, 165, 192);
+    --buttonHovercolor:black;
+
+}
+body{
+    height: clamp(100vh,100%,4000px);
+    width:100%;
+}
+body .container{
+    display:flex;
+    height: 100%;
+    
+}
+.container >*{
+    min-height: 100%;
+}
+.container .leftpanel{
+    flex:1;
+    background-image: url("images/photoksar.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: 0px 0px;
+    display: flex;
+    flex-direction: column;
+justify-content: center;
+}
+.container .leftpanel .showLogo{
+height: 25%;
+background: rgba(10, 10, 10, 0.784);
+
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+top:-70px;
+padding-right:2vw;
+}
+.showLogo>*{
+    color: white;
+    opacity: 1;
+    font-family: "logo", sans-serif;
+font-size: max(2rem, calc(2vw + 4rem));
+line-height: 1.4;
+
+}
+.container .leftpanel .showLogo #logo-image{
+    width: max(50px,25%);
+    height: clamp(70px,calc(40% + 6vw),90%)
+}
+
+.showLogo #odin{
+    position: relative;
+    top:.1em;
+}
+.container .rightpanel{
+    flex:1.5;
+    display: flex;
+    flex-direction: column;
+}
+.container .rightpanel header {
+flex:1;
+padding:6rem 2rem 2rem 3rem;
+background-color: rgba(238, 238, 238, 0.904);
+box-shadow: 0 0 6px gray;
+}
+header p{
+    font:1.2rem/1.9 "newformheading";
+}
+header p+p{
+    margin-top: 2rem;
+}
+.container .rightpanel main{
+flex:4;
+box-shadow: 0 0 2px purple;
+}
+.rightpanel main form{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+fieldset{
+border: none;
+background-color: rgb(253, 245, 255);
+padding:3rem;
+padding-top: 5rem;
+position: relative;
+}
+fieldset legend{
+position: absolute;
+top: 1rem;
+    display: block;
+    border:0;
+    font: 1.3rem "formheading";
+    
+}
+fieldset .form-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.form-container div{
+    width:45%;
+    margin-bottom: 2rem;
+    margin-right: 1.3rem;
+}
+.form-container div label{
+    display: block;
+    margin-bottom: .2rem;
+    font: .7rem/1.2 "formlabel";
+    position: relative;
+    width:90%;
+}
+label:not(:has(+input#secondname))::after{
+    content:"*";
+    color:var(--hoverBorderColor);
+    position:absolute;
+    font-size: 1.3em;
+    right:.5rem;
+    top:2px;
+
+}
+.form-container div input{
+    width:90%;
+    height:4.5vh;
+    padding:.7rem;
+    border:.2em solid var(--hoverColor);
+    font: .7rem/1.2 "formlabel";
+}
+
+
+#form-div input:hover,#form-div input:focus{
+    border:.2em solid var(--hoverBorderColor);
+    background-color: var(--hoverColor);
+    outline: none;
+    
+}
+input:hover,input:focus-visible{
+    border-radius: 5px;
+}
+
+form .submission{
+    padding:3rem;
+    padding-bottom: 1em;
+}
+
+form .submission button{
+    display: block;
+    padding:.8em 1.2em;
+    color: black;
+    margin-bottom: 1rem;
+    font: 1rem/1 "formheading";
+    background-color: var(--buttonHoverbgcolor);
+    
+    border:.1em solid var(--hoverBorderColor) ;
+    border-radius:10px;
+}
+ .submission button:hover{
+background-color: rgb(197, 77, 137);
+color:var(--buttonHovercolor);
+box-shadow: 0 0 15px 3px var(--hoverColor);
+}
+.submission span{
+    font-family: "formlabel";
+    font-size: .8rem;
+}
+.submission a{
+    font-family: "newformheading";
+    color:var(--hoverBorderColor);
+}
