@@ -123,10 +123,11 @@ fieldset .form-container{
     display: flex;
     flex-wrap: wrap;
 }
-.form-container div{
+.form-container>div{
     width:45%;
     margin-bottom: 2rem;
     margin-right: 1.3rem;
+    position: relative;
 }
 .form-container div label{
     display: block;
@@ -150,10 +151,50 @@ label:not(:has(+input#secondname))::after{
     padding:.7rem;
     border:.2em solid var(--hoverColor);
     font: .7rem/1.2 "formlabel";
+    position: relative;
 }
-
-
-#form-div input:hover,#form-div input:focus{
+.pass-rules{
+    position: absolute;
+    width:13rem;
+    top:3.5rem;
+    left:0;
+      visibility: hidden;
+}
+.pass-rules div{
+    font:.2em/2 "newformheading";
+    color:var(--hoverBorderColor);
+  
+}
+#form-div div:has(>input.valid-input:invalid:focus) .pass-rules div
+{
+    visibility: visible;
+}
+#form-div div:has(>input.valid-input:valid:focus) .pass-rules div{
+visibility: visible;
+color: limegreen;
+}
+#form-div div:has(>input.valid-input)::after{
+    content:"";
+    background-size: contain;
+    width: .8rem;
+    height: .8rem;
+    display: inline-block;
+    position:relative;
+    top:2px;
+    right:-7px;
+    
+}
+#form-div div:has(>input.valid-input:valid)::after{
+    background-image: url("images/tick.png");
+}
+#form-div div:has(>input.valid-input:invalid:focus)::after{
+    background-image: url("images/cross.png");
+    border-color:red ;
+}
+#form-div input.valid-input:invalid:focus,#form-div input.valid-input:invalid:focus:hover{
+    border-color: red;
+}
+ #form-div input:hover,#form-div input:focus{
     border:.2em solid var(--hoverBorderColor);
     background-color: var(--hoverColor);
     outline: none;
@@ -191,4 +232,5 @@ box-shadow: 0 0 15px 3px var(--hoverColor);
 .submission a{
     font-family: "newformheading";
     color:var(--hoverBorderColor);
+    text-decoration: none;
 }

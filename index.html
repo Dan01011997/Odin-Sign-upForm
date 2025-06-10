@@ -22,12 +22,13 @@
                     <fieldset>
                         <legend>Let's do this!</legend>
                        <div class="form-container" id="form-div">
-                        <div><label for="startname">First Name</label><input id="startname" name="firstname" type="text"></div>
+                        <div><label for="startname">First Name</label><input required  id="startname" name="firstname" type="text"></div>
                         <div><label for="secondname">Last Name</label><input id="secondname" name="lastname" type="text"></div>
-                        <div><label for="emailid">Email</label><input id="emailid" name="mail" type="email" placeholder="your@example.com"></div>
-                        <div><label for="phonenumber">Phone Number</label><input id="phonenumber" name="telephone" type="tel"></div>
-                        <div><label for="passwordstart">Password</label><input id="passwordstart" name="password" type="password"></div>
-                        <div><label for="confirmpassword">Confirm Password</label><input id="confirmpassword" name="password" type="password"></div>
+                        <div><label for="emailid">Email</label><input required class="valid-input" id="emailid" name="mail" type="email" placeholder="your@example.com"></div>
+                        <div><label for="phonenumber">Phone Number</label><input required class="valid-input" pattern="^[6-9]\d{9}" id="phonenumber" name="telephone" type="tel" placeholder="10 digits"></div>
+                        <div><label for="passwordstart">Password</label><input required class="valid-input" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.*#%$@!?]).{8,}$" id="passwordstart" name="password" type="password"><span class="pass-rules"><div>Min 8 chars</div>
+                        <div>Use atleast an Upper-case, a Small-case, a digit(0-9) and a special char</div></span></div>
+                        <div><label for="confirmpassword">Confirm Password</label><input class="valid-input" required  id="confirmpassword" name="password" type="password"></div>
                        
                        </div> 
                     </fieldset>
